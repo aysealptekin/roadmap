@@ -7,4 +7,7 @@ class AppRoutes {
   static const addExpense = "/addExpense";
   static const transactions = "/transactions";
   static const categories = "/categories";
+  static const profile = "/profile";
+  static const pusulaAi = "/pusulaAi";
+  static const seruven = "/seruven";
 }

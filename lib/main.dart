@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:roadmap/screens/categories_screen.dart';
 import 'package:roadmap/screens/home_page.dart';
+import 'package:roadmap/screens/profile_screen.dart';
+import 'package:roadmap/screens/pusula_ai.dart';
+import 'package:roadmap/screens/seruven_screen.dart';
 import 'package:roadmap/screens/vibe_check_screen.dart';
 import 'package:roadmap/theme/app_theme.dart';
 import 'screens/add_expense_screen.dart';
@@ -33,6 +36,9 @@ class RoadMapApp extends StatelessWidget {
         AppRoutes.addExpense: (context) => const AddExpenseScreen(),
         AppRoutes.transactions: (context) => const TransactionsScreen(),
         AppRoutes.categories: (context) => const CategoriesScreen(),
+        AppRoutes.seruven: (context) => const SeruvenScreen(),
+        AppRoutes.pusulaAi: (context) => const PusulaAiScreen(),
+        AppRoutes.profile: (context) => const ProfileScreen(),
       },
     );
   }

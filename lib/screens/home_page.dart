@@ -45,10 +45,90 @@ class HomePageScreen extends StatelessWidget {
                       ],
                     ),
                     const Spacer(), //row icinde kullanildiginda kendisinden sonraki bilesenleri kalan tum boslugu doldurarak saga iter
-                    const Icon(
-                      Icons.notifications_none_rounded,
-                      color: Color(0xFF7B8FF7),
-                      size: 28,
+                    IconButton(
+                      icon: const Icon(
+                        Icons.notifications_none_rounded,
+                        color: Color(0xFF7B8FF7),
+                        size: 28,
+                      ),
+                      onPressed: () {
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (context) {
+                            return Container(
+                              height: 300,
+                              padding: const EdgeInsets.all(20),
+                              decoration: const BoxDecoration(
+                                color: Color(0xFF1A1D24),
+                                borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(24),
+                                ),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: const [
+                                  Text(
+                                    "Bildirimler",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  SizedBox(height: 20),
+                                  ListTile(
+                                    contentPadding: EdgeInsets.zero,
+                                    leading: Icon(
+                                      Icons.notifications,
+                                      color: Color(0xFF7B8FF7),
+                                    ),
+                                    title: Text(
+                                      "Bu ay harcamaların %5 arttı",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    subtitle: Text(
+                                      "2 saat önce",
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                  ),
+                                  Divider(color: Colors.white12),
+                                  ListTile(
+                                    contentPadding: EdgeInsets.zero,
+                                    leading: Icon(
+                                      Icons.savings,
+                                      color: Colors.orangeAccent,
+                                    ),
+                                    title: Text(
+                                      "Tasarruf hedefin yaklaşıyor",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    subtitle: Text(
+                                      "Bugün",
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                  ),
+                                  Divider(color: Colors.white12),
+                                  ListTile(
+                                    contentPadding: EdgeInsets.zero,
+                                    leading: Icon(
+                                      Icons.auto_awesome,
+                                      color: Colors.pinkAccent,
+                                    ),
+                                    title: Text(
+                                      "Pusula AI sana yeni öneri hazırladı",
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    subtitle: Text(
+                                      "Dün",
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -231,6 +311,18 @@ class HomePageScreen extends StatelessWidget {
 
       // ================= ALT MENÜ ================
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 0,
+        onTap: (index) {
+          if (index == 0) return;
+
+          if (index == 1) {
+            Navigator.pushReplacementNamed(context, AppRoutes.seruven);
+          } else if (index == 2) {
+            Navigator.pushReplacementNamed(context, AppRoutes.pusulaAi);
+          } else if (index == 3) {
+            Navigator.pushReplacementNamed(context, AppRoutes.profile);
+          }
+        },
         backgroundColor: const Color(0xFF0D0F14),
         type: BottomNavigationBarType.fixed,
         selectedItemColor: const Color(0xFF7B8FF7),
